@@ -131,7 +131,6 @@ Finalmente realiza un análisis de los resultados obtenidos
 ```
 
 <br/><br/>
-
 <div class="content-box-yellow">
 ### **Nota**
 

@@ -1,29 +1,142 @@
 ---
-title: "Actividad1"
-author: "Nivelatorio Estadística"
-output: html_document
+title: <span style="color:#034a94"> **Actividad 1**</span>
+output:
+html_document:
+css: styles.css
 ---
+
+<br/><br/>
+
+Sigue las siguientes instrucciones y podrás realizar un análisis de la situación actual del Covid-19 para la región de tu preferencia.
+
+Debes entregar un archivo pdf con el resultado del proceso 
+
+<br/><br/>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+### <span style="color:#034a94"> **Paso 1 : INSTALA PAQUETES Y ACTÍVALOS**</span>
 
-```{r cars}
-summary(cars)
+```{r, eval=FALSE}
+install.packages("tidyverse") #  instalación de paquete para manejo de datos
+install.packages("RSocrata", dependencies = TRUE)   # instalación de paquete RSocrata lee datos de manera remota
+install.packages("devtools")  # instala paquete para descargar paquetes desde github
+devtools::install_github("dcomtois/summarytools") # descarga paquete summarytools desde repositorio github
+library(tidyverse)   # libreria util en el manejo de datos
+library(RSocrata)    # llamado de libreria RSocratas
 ```
 
-## Including Plots
+<br/><br/>
 
-You can also embed plots, for example:
+### <span style="color:#034a94"> **Paso 2 : DESCARGA DATOS**</span>
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r, eval=FALSE}
+token <- "zxMsD6eXc0zlEMryRGW87Hwrz"  # token
+Colombia <- read.socrata("https://www.datos.gov.co/resource/gt2j-8ykr.json", app_token = token) # lectura de manera remota 
+
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+<br/><br/>
+
+
+### <span style="color:#034a94"> **Paso 3 : ARREGLA LA BASE DE INCONSISTENCIAS**</span>
+
+```{r, eval=FALSE}
+Colombia$edad=as.integer(Colombia$edad)  # convertir en entero la variable edad
+Colombia$sexo=str_to_lower(Colombia$sexo) # pasar a minúsculas todos valores de la variable sexo
+Colombia$estado=str_to_lower(Colombia$estado) # pasar a minúsculas todos lo valores de la variable estado
+Colombia$estado[Colombia$estado=="n/a"]=NA   # cambiar el valor  n/a por NA - valores faltantes
+Colombia$recuperado=str_to_lower(Colombia$recuperado) # pasar a minúsculas todos los valores de la variable recuperado
+Colombia$recuperado[Colombia$recuperado=="n/a"]=NA 
+Colombia$ubicacion=str_to_lower(Colombia$ubicacion) # pasar a minúsculas todos los valores de la variable ubicación
+Colombia$ubicacion[Colombia$ubicacion=="n/a"]=NA 
+```
+
+<br/><br/>
+
+
+### <span style="color:#034a94"> **Paso 4 : SELECCIONA PARTE DE LA BASE**</span>
+
+```{r, eval=FALSE}
+Colombia22=subset(Colombia, Colombia$fecha_reporte_web>="2022-01-01") # data del 2022
+Colombia21=subset(Colombia, Colombia$fecha_reporte_web>="2021-01-01" & Colombia$fecha_reporte_web<"2022-01-01") # data de 2021
+Colombia20=subset(Colombia, Colombia$fecha_reporte_web>="2020-01-01" & Colombia$fecha_reporte_web<"2021-01-01") # data de 2020
+Colombia22_11=subset(Colombia, Colombia$fecha_reporte_web>="2022-11-01") # data desde  nov-01-2022 
+Valle22_11=subset(Colombia22_11, departamento=="76") # data del Valle del Cauca desde nov-01-2022
+Cali22_11= subset(Colombia22_11, ciudad_municipio_nom=="CALI") # data de Cali desde nov-01-2022
+
+```
+
+<br/><br/>
+
+### <span style="color:#034a94"> **Paso 5 : CONSTRUYE TABLAS DE FRECUENCIA**</span>
+
+```{r, eval=FALSE}
+table(Colombia22$estado)
+table(Colombia21$estado)
+table(Colombia20$estado)
+table(Valle22_11$estado)
+table(Cali22_11$estado, Cali22_11$sexo)
+
+summarytools::freq(Colombia22$estado, cumul = F)
+summarytools::freq(Colombia21$estado, cumul = F)
+summarytools::freq(Colombia20$estado, cumul = F)
+```
+
+<br/><br/>
+
+### <span style="color:#034a94"> **Paso 7 : OBTÉM RESUMEN DE INDICADORES**</span>
+
+```{r, eval=FALSE}
+mean(Colombia22_11$edad, na.rm = FALSE)
+median(Colombia22_11$edad)
+var(Colombia22_11$edad)
+sd(Colombia22_11$edad)
+min(Colombia22_11$edad)
+max(Colombia22_11$edad)
+
+summarytools::descr(Colombia22_11$edad)
+```
+
+<br/><br/>
+
+### <span style="color:#034a94"> **Paso 7 : CONSTRUYE GRÁFICOS**</span>
+
+```{r, eval=FALSE}
+t1=table(Colombia$sexo)
+pie(t1)
+
+t2=table(Colombia$sexo,Colombia$ubicacion)
+barplot(t2, las=1)
+
+hist(Colombia22_11$edad, las=1, xlab = "edad (años)", ylab = "frecuencia", 
+main = "Edad de personas contagiadas Covid19 Colombia- Nov 2022" )
+
+boxplot(Colombia$edad, horizontal = TRUE,
+main = "Edad de personas contagiadas Covid19 Colombia")
+
+
+```
+
+<br/><br/>
+
+### <span style="color:#034a94"> **Paso 8 : ESCRIBE EL ANÁLISIS DE LOS DATOS**</span>
+
+```{r, eval=FALSE}
+Finalmente realiza un análisis de los resultados obtenidos
+```
+
+<br/><br/>
+
+<div class="content-box-yellow">
+### **Nota**
+
+Recuerde que para iniciar el documento debe abrir un nuevo archivo .Rmd 
+
+*File / New File / R Markdown...* 
+</div>
+

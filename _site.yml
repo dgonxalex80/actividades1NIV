@@ -1,0 +1,8 @@
+name: " "
+output_dir: "docs"
+navbar:
+  title: "Nivelatorio de Estadística"
+
+output:
+  html_document:
+    css: style.css

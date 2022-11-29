@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title> Actividad 1</title>
+
+<script src="site_libs/header-attrs-2.17/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Nivelatorio de Estadística</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><span style="color:#034a94">
+<strong>Actividad 1</strong></span></h1>
+
+</div>
+
+
+<p><br/><br/></p>
+<p>Sigue las siguientes instrucciones y podrás realizar un análisis de
+la situación actual del Covid-19 para la región de tu preferencia.</p>
+<p>Debes entregar un archivo pdf con el resultado del proceso</p>
+<p><br/><br/></p>
+<div id="paso-1-instala-paquetes-y-actívalos" class="section level3">
+<h3><span style="color:#034a94"> <strong>Paso 1 : INSTALA PAQUETES Y
+ACTÍVALOS</strong></span></h3>
+<pre class="r"><code>install.packages(&quot;tidyverse&quot;) #  instalación de paquete para manejo de datos
+install.packages(&quot;RSocrata&quot;, dependencies = TRUE)   # instalación de paquete RSocrata lee datos de manera remota
+install.packages(&quot;devtools&quot;)  # instala paquete para descargar paquetes desde github
+devtools::install_github(&quot;dcomtois/summarytools&quot;) # descarga paquete summarytools desde repositorio github
+library(tidyverse)   # libreria util en el manejo de datos
+library(RSocrata)    # llamado de libreria RSocratas</code></pre>
+<p><br/><br/></p>
+</div>
+<div id="paso-2-descarga-datos" class="section level3">
+<h3><span style="color:#034a94"> <strong>Paso 2 : DESCARGA
+DATOS</strong></span></h3>
+<pre class="r"><code>token &lt;- &quot;zxMsD6eXc0zlEMryRGW87Hwrz&quot;  # token
+Colombia &lt;- read.socrata(&quot;https://www.datos.gov.co/resource/gt2j-8ykr.json&quot;, app_token = token) # lectura de manera remota </code></pre>
+<p><br/><br/></p>
+</div>
+<div id="paso-3-arregla-la-base-de-inconsistencias"
+class="section level3">
+<h3><span style="color:#034a94"> <strong>Paso 3 : ARREGLA LA BASE DE
+INCONSISTENCIAS</strong></span></h3>
+<pre class="r"><code>Colombia$edad=as.integer(Colombia$edad)  # convertir en entero la variable edad
+Colombia$sexo=str_to_lower(Colombia$sexo) # pasar a minúsculas todos valores de la variable sexo
+Colombia$estado=str_to_lower(Colombia$estado) # pasar a minúsculas todos lo valores de la variable estado
+Colombia$estado[Colombia$estado==&quot;n/a&quot;]=NA   # cambiar el valor  n/a por NA - valores faltantes
+Colombia$recuperado=str_to_lower(Colombia$recuperado) # pasar a minúsculas todos los valores de la variable recuperado
+Colombia$recuperado[Colombia$recuperado==&quot;n/a&quot;]=NA 
+Colombia$ubicacion=str_to_lower(Colombia$ubicacion) # pasar a minúsculas todos los valores de la variable ubicación
+Colombia$ubicacion[Colombia$ubicacion==&quot;n/a&quot;]=NA </code></pre>
+<p><br/><br/></p>
+</div>
+<div id="paso-4-selecciona-parte-de-la-base" class="section level3">
+<h3><span style="color:#034a94"> <strong>Paso 4 : SELECCIONA PARTE DE LA
+BASE</strong></span></h3>
+<pre class="r"><code>Colombia22=subset(Colombia, Colombia$fecha_reporte_web&gt;=&quot;2022-01-01&quot;) # data del 2022
+Colombia21=subset(Colombia, Colombia$fecha_reporte_web&gt;=&quot;2021-01-01&quot; &amp; Colombia$fecha_reporte_web&lt;&quot;2022-01-01&quot;) # data de 2021
+Colombia20=subset(Colombia, Colombia$fecha_reporte_web&gt;=&quot;2020-01-01&quot; &amp; Colombia$fecha_reporte_web&lt;&quot;2021-01-01&quot;) # data de 2020
+Colombia22_11=subset(Colombia, Colombia$fecha_reporte_web&gt;=&quot;2022-11-01&quot;) # data desde  nov-01-2022 
+Valle22_11=subset(Colombia22_11, departamento==&quot;76&quot;) # data del Valle del Cauca desde nov-01-2022
+Cali22_11= subset(Colombia22_11, ciudad_municipio_nom==&quot;CALI&quot;) # data de Cali desde nov-01-2022</code></pre>
+<p><br/><br/></p>
+</div>
+<div id="paso-5-construye-tablas-de-frecuencia" class="section level3">
+<h3><span style="color:#034a94"> <strong>Paso 5 : CONSTRUYE TABLAS DE
+FRECUENCIA</strong></span></h3>
+<pre class="r"><code>table(Colombia22$estado)
+table(Colombia21$estado)
+table(Colombia20$estado)
+table(Valle22_11$estado)
+table(Cali22_11$estado, Cali22_11$sexo)
+
+summarytools::freq(Colombia22$estado, cumul = F)
+summarytools::freq(Colombia21$estado, cumul = F)
+summarytools::freq(Colombia20$estado, cumul = F)</code></pre>
+<p><br/><br/></p>
+</div>
+<div id="paso-7-obtém-resumen-de-indicadores" class="section level3">
+<h3><span style="color:#034a94"> <strong>Paso 7 : OBTÉM RESUMEN DE
+INDICADORES</strong></span></h3>
+<pre class="r"><code>mean(Colombia22_11$edad, na.rm = FALSE)
+median(Colombia22_11$edad)
+var(Colombia22_11$edad)
+sd(Colombia22_11$edad)
+min(Colombia22_11$edad)
+max(Colombia22_11$edad)
+
+summarytools::descr(Colombia22_11$edad)</code></pre>
+<p><br/><br/></p>
+</div>
+<div id="paso-7-construye-gráficos" class="section level3">
+<h3><span style="color:#034a94"> <strong>Paso 7 : CONSTRUYE
+GRÁFICOS</strong></span></h3>
+<pre class="r"><code>t1=table(Colombia$sexo)
+pie(t1)
+
+t2=table(Colombia$sexo,Colombia$ubicacion)
+barplot(t2, las=1)
+
+hist(Colombia22_11$edad, las=1, xlab = &quot;edad (años)&quot;, ylab = &quot;frecuencia&quot;, 
+main = &quot;Edad de personas contagiadas Covid19 Colombia- Nov 2022&quot; )
+
+boxplot(Colombia$edad, horizontal = TRUE,
+main = &quot;Edad de personas contagiadas Covid19 Colombia&quot;)</code></pre>
+<p><br/><br/></p>
+</div>
+<div id="paso-8-escribe-el-análisis-de-los-datos"
+class="section level3">
+<h3><span style="color:#034a94"> <strong>Paso 8 : ESCRIBE EL ANÁLISIS DE
+LOS DATOS</strong></span></h3>
+<pre class="r"><code>Finalmente realiza un análisis de los resultados obtenidos</code></pre>
+<p><br/><br/></p>
+</div>
+<div id="nota" class="section level3 content-box-yellow">
+<h3><strong>Nota</strong></h3>
+<p>Recuerde que para iniciar el documento debe abrir un nuevo archivo
+.Rmd</p>
+<p><em>File / New File / R Markdown…</em></p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

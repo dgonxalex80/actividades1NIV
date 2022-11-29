@@ -1,4 +1,5 @@
 name: " "
+output_dir: "docs"
 navbar:
   title: "Nivelatorio de Estadística"
 

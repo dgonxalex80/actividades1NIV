@@ -94,7 +94,7 @@ summarytools::freq(Colombia20$estado, cumul = F)
 
 <br/><br/>
 
-### <span style="color:#034a94"> **Paso 7 : OBTÉM RESUMEN DE INDICADORES**</span>
+### <span style="color:#034a94"> **Paso 7 : OBTÉN RESUMEN DE INDICADORES**</span>
 
 ```{r, eval=FALSE}
 mean(Colombia22_11$edad, na.rm = TRUE)
@@ -137,9 +137,9 @@ Finalmente realiza un análisis de los resultados obtenidos
 
 <br/><br/>
 <div class="content-box-yellow">
-### **Nota**
+#### **Nota**
 
-Recuerde que para iniciar el documento debe abrir un nuevo archivo .Rmd 
+Recuerde que para iniciar la actividad debe abrir un nuevo archivo .Rmd 
 
 *File / New File / R Markdown...* 
 </div>

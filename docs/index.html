@@ -289,7 +289,12 @@ Colombia &lt;- read.socrata(&quot;https://www.datos.gov.co/resource/gt2j-8ykr.js
 class="section level3">
 <h3><span style="color:#034a94"> <strong>Paso 3 : ARREGLA LA BASE DE
 INCONSISTENCIAS</strong></span></h3>
-<pre class="r"><code>Colombia$edad=as.integer(Colombia$edad)  # convertir en entero la variable edad
+<pre class="r"><code>table(Colombia$estado)
+table(Colombia$sexo)
+table(Colombia$ubicacion)
+
+
+Colombia$edad=as.integer(Colombia$edad)  # convertir en entero la variable edad
 Colombia$sexo=str_to_lower(Colombia$sexo) # pasar a minúsculas todos valores de la variable sexo
 Colombia$estado=str_to_lower(Colombia$estado) # pasar a minúsculas todos lo valores de la variable estado
 Colombia$estado[Colombia$estado==&quot;n/a&quot;]=NA   # cambiar el valor  n/a por NA - valores faltantes
@@ -327,7 +332,7 @@ summarytools::freq(Colombia20$estado, cumul = F)</code></pre>
 <div id="paso-7-obtém-resumen-de-indicadores" class="section level3">
 <h3><span style="color:#034a94"> <strong>Paso 7 : OBTÉM RESUMEN DE
 INDICADORES</strong></span></h3>
-<pre class="r"><code>mean(Colombia22_11$edad, na.rm = FALSE)
+<pre class="r"><code>mean(Colombia22_11$edad, na.rm = TRUE)
 median(Colombia22_11$edad)
 var(Colombia22_11$edad)
 sd(Colombia22_11$edad)

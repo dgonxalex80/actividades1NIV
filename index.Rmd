@@ -46,6 +46,11 @@ Colombia <- read.socrata("https://www.datos.gov.co/resource/gt2j-8ykr.json", app
 ### <span style="color:#034a94"> **Paso 3 : ARREGLA LA BASE DE INCONSISTENCIAS**</span>
 
 ```{r, eval=FALSE}
+table(Colombia$estado)
+table(Colombia$sexo)
+table(Colombia$ubicacion)
+
+
 Colombia$edad=as.integer(Colombia$edad)  # convertir en entero la variable edad
 Colombia$sexo=str_to_lower(Colombia$sexo) # pasar a minúsculas todos valores de la variable sexo
 Colombia$estado=str_to_lower(Colombia$estado) # pasar a minúsculas todos lo valores de la variable estado
@@ -92,7 +97,7 @@ summarytools::freq(Colombia20$estado, cumul = F)
 ### <span style="color:#034a94"> **Paso 7 : OBTÉM RESUMEN DE INDICADORES**</span>
 
 ```{r, eval=FALSE}
-mean(Colombia22_11$edad, na.rm = FALSE)
+mean(Colombia22_11$edad, na.rm = TRUE)
 median(Colombia22_11$edad)
 var(Colombia22_11$edad)
 sd(Colombia22_11$edad)

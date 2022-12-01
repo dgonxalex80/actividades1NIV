@@ -18,8 +18,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
+## <span style="color:#FF7F00"> **Paso 1 :**</span>
+### <span style="color:#FF7F00"> **Instala los siguientes paquetes y actívalos en tu computador o equipo de trabajo**</span>
 
-### <span style="color:#034a94"> **Paso 1 : INSTALA PAQUETES Y ACTÍVALOS**</span>
 
 ```{r, eval=FALSE}
 install.packages("tidyverse") #  instalación de paquete para manejo de datos
@@ -32,7 +33,8 @@ library(RSocrata)    # llamado de libreria RSocratas
 
 <br/><br/>
 
-### <span style="color:#034a94"> **Paso 2 : DESCARGA DATOS**</span>
+## <span style="color:#FF7F00"> **Paso 2 :**</span>
+### <span style="color:#FF7F00"> **Dscarga la data **</span>
 
 ```{r, eval=FALSE}
 token <- "zxMsD6eXc0zlEMryRGW87Hwrz"  # token
@@ -42,8 +44,8 @@ Colombia <- read.socrata("https://www.datos.gov.co/resource/gt2j-8ykr.json", app
 
 <br/><br/>
 
-
-### <span style="color:#034a94"> **Paso 3 : ARREGLA LA BASE DE INCONSISTENCIAS**</span>
+## <span style="color:#FF7F00"> **Paso 3 :**</span>
+### <span style="color:#FF7F00"> **Arregla la data**</span>
 
 ```{r, eval=FALSE}
 table(Colombia$estado)
@@ -63,8 +65,8 @@ Colombia$ubicacion[Colombia$ubicacion=="n/a"]=NA
 
 <br/><br/>
 
-
-### <span style="color:#034a94"> **Paso 4 : SELECCIONA PARTE DE LA BASE**</span>
+## <span style="color:#FF7F00"> **Paso 4 :**</span>
+### <span style="color:#FF7F00"> **Selecciona una data de tu interés**</span>
 
 ```{r, eval=FALSE}
 Colombia22=subset(Colombia, Colombia$fecha_reporte_web>="2022-01-01") # data del 2022
@@ -78,7 +80,8 @@ Cali22_11= subset(Colombia22_11, ciudad_municipio_nom=="CALI") # data de Cali de
 
 <br/><br/>
 
-### <span style="color:#034a94"> **Paso 5 : CONSTRUYE TABLAS DE FRECUENCIA**</span>
+## <span style="color:#FF7F00"> **Paso 5 :**</span>
+### <span style="color:#FF7F00"> **Construye las tablas**</span>
 
 ```{r, eval=FALSE}
 table(Colombia22$estado)
@@ -94,8 +97,8 @@ summarytools::freq(Colombia20$estado, cumul = F)
 
 <br/><br/>
 
-### <span style="color:#034a94"> **Paso 7 : OBTÉN RESUMEN DE INDICADORES**</span>
-
+## <span style="color:#FF7F00"> **Paso 6 :**</span>
+### <span style="color:#FF7F00"> **Construye los indicadores estadísticos**</span>
 ```{r, eval=FALSE}
 mean(Colombia22_11$edad, na.rm = TRUE)
 median(Colombia22_11$edad)
@@ -109,7 +112,8 @@ summarytools::descr(Colombia22_11$edad)
 
 <br/><br/>
 
-### <span style="color:#034a94"> **Paso 7 : CONSTRUYE GRÁFICOS**</span>
+## <span style="color:#FF7F00"> **Paso 7 :**</span>
+### <span style="color:#FF7F00"> **Construye los gráficos**</span>
 
 ```{r, eval=FALSE}
 t1=table(Colombia$sexo)
@@ -129,7 +133,8 @@ main = "Edad de personas contagiadas Covid19 Colombia")
 
 <br/><br/>
 
-### <span style="color:#034a94"> **Paso 8 : ESCRIBE EL ANÁLISIS DE LOS DATOS**</span>
+## <span style="color:#FF7F00"> **Paso 8 :**</span>
+### <span style="color:#FF7F00"> **Escribe el análisis de los datos**</span>
 
 ```{r, eval=FALSE}
 Finalmente realiza un análisis de los resultados obtenidos

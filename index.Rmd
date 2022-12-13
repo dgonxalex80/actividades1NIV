@@ -144,8 +144,35 @@ Finalmente realiza un análisis de los resultados obtenidos
 <div class="content-box-yellow">
 #### **Nota**
 
-Recuerde que para iniciar la actividad debe abrir un nuevo archivo .Rmd 
+Recuerde que para :
+
+<br/>
+
+* **Iniciar la actividad debe abrir un nuevo archivo .Rmd**
 
 *File / New File / R Markdown...* 
-</div>
 
+<br/><br/>
+
+* **Para procesar el docutumento y convertirlo en pdf**
+
+```{r, echo=FALSE, out.width="70%", fig.align = "center"}
+knitr::include_graphics("img/Rmd_pdf.png")
+```
+
+
+
+
+<br/><br/>
+
+
+* **Para descargar una base de datos abiertos**
+
+<br/>
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lRftK2mL3Sw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+
+
+</div>

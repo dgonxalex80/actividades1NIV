@@ -34,7 +34,7 @@ library(RSocrata)    # llamado de libreria RSocratas
 <br/><br/>
 
 ## <span style="color:#034a94"> **Paso 2 :**</span>
-### <span style="color:#034a94"> **Dscarga la data **</span>
+### <span style="color:#034a94"> **Descarga la data **</span>
 
 ```{r, eval=FALSE}
 token <- "zxMsD6eXc0zlEMryRGW87Hwrz"  # token

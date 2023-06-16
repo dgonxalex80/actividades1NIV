@@ -264,15 +264,15 @@ $(document).ready(function () {
 
 <p><br/><br/></p>
 <p>Sigue las siguientes instrucciones y podrás realizar un análisis de
-la situación actual del Covid-19 para la región de tu preferencia.</p>
+la situación actual del Covid-19 para la región de tu interés.</p>
 <p>Debes entregar un archivo pdf con el resultado del proceso</p>
 <p><br/><br/></p>
 <div id="paso-1" class="section level2">
-<h2><span style="color:#FF7F00"> <strong>Paso 1 :</strong></span></h2>
+<h2><span style="color:#034a94"> <strong>Paso 1 :</strong></span></h2>
 <div
 id="instala-los-siguientes-paquetes-y-actívalos-en-tu-computador-o-equipo-de-trabajo"
 class="section level3">
-<h3><span style="color:#FF7F00"> <strong>Instala los siguientes paquetes
+<h3><span style="color:#034a94"> <strong>Instala los siguientes paquetes
 y actívalos en tu computador o equipo de trabajo</strong></span></h3>
 <pre class="r"><code>install.packages(&quot;tidyverse&quot;) #  instalación de paquete para manejo de datos
 install.packages(&quot;RSocrata&quot;, dependencies = TRUE)   # instalación de paquete RSocrata lee datos de manera remota
@@ -284,9 +284,9 @@ library(RSocrata)    # llamado de libreria RSocratas</code></pre>
 </div>
 </div>
 <div id="paso-2" class="section level2">
-<h2><span style="color:#FF7F00"> <strong>Paso 2 :</strong></span></h2>
+<h2><span style="color:#034a94"> <strong>Paso 2 :</strong></span></h2>
 <div id="dscarga-la-data" class="section level3">
-<h3><span style="color:#FF7F00"> <strong>Dscarga la data
+<h3><span style="color:#034a94"> <strong>Dscarga la data
 </strong></span></h3>
 <pre class="r"><code>token &lt;- &quot;zxMsD6eXc0zlEMryRGW87Hwrz&quot;  # token
 Colombia &lt;- read.socrata(&quot;https://www.datos.gov.co/resource/gt2j-8ykr.json&quot;, app_token = token) # lectura de manera remota </code></pre>
@@ -294,9 +294,9 @@ Colombia &lt;- read.socrata(&quot;https://www.datos.gov.co/resource/gt2j-8ykr.js
 </div>
 </div>
 <div id="paso-3" class="section level2">
-<h2><span style="color:#FF7F00"> <strong>Paso 3 :</strong></span></h2>
+<h2><span style="color:#034a94"> <strong>Paso 3 :</strong></span></h2>
 <div id="arregla-la-data" class="section level3">
-<h3><span style="color:#FF7F00"> <strong>Arregla la
+<h3><span style="color:#034a94"> <strong>Arregla la
 data</strong></span></h3>
 <pre class="r"><code>table(Colombia$estado)
 table(Colombia$sexo)
@@ -315,9 +315,9 @@ Colombia$ubicacion[Colombia$ubicacion==&quot;n/a&quot;]=NA </code></pre>
 </div>
 </div>
 <div id="paso-4" class="section level2">
-<h2><span style="color:#FF7F00"> <strong>Paso 4 :</strong></span></h2>
+<h2><span style="color:#034a94"> <strong>Paso 4 :</strong></span></h2>
 <div id="selecciona-una-data-de-tu-interés" class="section level3">
-<h3><span style="color:#FF7F00"> <strong>Selecciona una data de tu
+<h3><span style="color:#034a94"> <strong>Selecciona una data de tu
 interés</strong></span></h3>
 <pre class="r"><code>Colombia22=subset(Colombia, Colombia$fecha_reporte_web&gt;=&quot;2022-01-01&quot;) # data del 2022
 Colombia21=subset(Colombia, Colombia$fecha_reporte_web&gt;=&quot;2021-01-01&quot; &amp; Colombia$fecha_reporte_web&lt;&quot;2022-01-01&quot;) # data de 2021
@@ -329,9 +329,9 @@ Cali22_11= subset(Colombia22_11, ciudad_municipio_nom==&quot;CALI&quot;) # data 
 </div>
 </div>
 <div id="paso-5" class="section level2">
-<h2><span style="color:#FF7F00"> <strong>Paso 5 :</strong></span></h2>
+<h2><span style="color:#034a94"> <strong>Paso 5 :</strong></span></h2>
 <div id="construye-las-tablas" class="section level3">
-<h3><span style="color:#FF7F00"> <strong>Construye las
+<h3><span style="color:#034a94"> <strong>Construye las
 tablas</strong></span></h3>
 <pre class="r"><code>table(Colombia22$estado)
 table(Colombia21$estado)
@@ -346,25 +346,25 @@ summarytools::freq(Colombia20$estado, cumul = F)</code></pre>
 </div>
 </div>
 <div id="paso-6" class="section level2">
-<h2><span style="color:#FF7F00"> <strong>Paso 6 :</strong></span></h2>
+<h2><span style="color:#034a94"> <strong>Paso 6 :</strong></span></h2>
 <div id="construye-los-indicadores-estadísticos" class="section level3">
-<h3><span style="color:#FF7F00"> <strong>Construye los indicadores
+<h3><span style="color:#034a94"> <strong>Construye los indicadores
 estadísticos</strong></span></h3>
-<pre class="r"><code>mean(Colombia22_11$edad, na.rm = TRUE)
-median(Colombia22_11$edad)
-var(Colombia22_11$edad)
-sd(Colombia22_11$edad)
-min(Colombia22_11$edad)
-max(Colombia22_11$edad)
+<pre class="r"><code>mean(Colombia22_11$edad, na.rm = TRUE) # media
+median(Colombia22_11$edad)             # mediana
+var(Colombia22_11$edad)                # varianza
+sd(Colombia22_11$edad)                 # desviación estandar
+min(Colombia22_11$edad)                # mínimo
+max(Colombia22_11$edad)                # máximo
 
 summarytools::descr(Colombia22_11$edad)</code></pre>
 <p><br/><br/></p>
 </div>
 </div>
 <div id="paso-7" class="section level2">
-<h2><span style="color:#FF7F00"> <strong>Paso 7 :</strong></span></h2>
+<h2><span style="color:#034a94"> <strong>Paso 7 :</strong></span></h2>
 <div id="construye-los-gráficos" class="section level3">
-<h3><span style="color:#FF7F00"> <strong>Construye los
+<h3><span style="color:#034a94"> <strong>Construye los
 gráficos</strong></span></h3>
 <pre class="r"><code>t1=table(Colombia$sexo)
 pie(t1)
@@ -381,24 +381,27 @@ main = &quot;Edad de personas contagiadas Covid19 Colombia&quot;)</code></pre>
 </div>
 </div>
 <div id="paso-8" class="section level2">
-<h2><span style="color:#FF7F00"> <strong>Paso 8 :</strong></span></h2>
+<h2><span style="color:#034a94"> <strong>Paso 8 :</strong></span></h2>
 <div id="escribe-el-análisis-de-los-datos" class="section level3">
-<h3><span style="color:#FF7F00"> <strong>Escribe el análisis de los
+<h3><span style="color:#034a94"> <strong>Escribe el análisis de los
 datos</strong></span></h3>
 <pre class="r"><code>Finalmente realiza un análisis de los resultados obtenidos</code></pre>
 <br/><br/>
-<div id="nota" class="section level4 content-box-yellow">
-<h4><strong>Nota</strong></h4>
+</div>
+<div id="nota" class="section level3 content-box-gray">
+<h3><strong>Nota</strong></h3>
 <p>Recuerde que para :</p>
 <p><br/></p>
 <ul>
-<li><strong>Iniciar la actividad debe abrir un nuevo archivo
-.Rmd</strong></li>
+<li><p><strong>Iniciar la actividad debe abrir un nuevo archivo
+.Rmd</strong></p>
+<ul>
+<li><em>File / New File / R Markdown…</em></li>
+</ul></li>
 </ul>
-<p><em>File / New File / R Markdown…</em></p>
 <p><br/><br/></p>
 <ul>
-<li><strong>Para procesar el docutumento y convertirlo en
+<li><strong>Para procesar el documento y convertirlo en
 pdf</strong></li>
 </ul>
 <p><img src="img/Rmd_pdf.png" width="70%" style="display: block; margin: auto;" /></p>
@@ -411,7 +414,6 @@ pdf</strong></li>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lRftK2mL3Sw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 </center>
-</div>
 </div>
 </div>
 

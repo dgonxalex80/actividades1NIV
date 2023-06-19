@@ -136,11 +136,14 @@ main = "Edad de personas contagiadas Covid19 Colombia")
 ## <span style="color:#034a94"> **Paso 8 :**</span>
 ### <span style="color:#034a94"> **Escribe el análisis de los datos**</span>
 
-```{r, eval=FALSE}
-Finalmente realiza un análisis de los resultados obtenidos
-```
+
+Finalmente realiza un análisis de los resultados obtenidos.
+Recuerde que para hacerlo debe tener en cuenta los indicadores de posición, centro, dispersión y forma. Además ayuda a reforzar el análisis una representacón gráfica.
+
 
 <br/><br/>
+
+
 <div class="content-box-gray">
 ### **Nota**
 

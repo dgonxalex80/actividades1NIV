@@ -2,14 +2,30 @@
 title: <span style="color:#034a94"> **Actividad 1**</span>
 output:
 html_document:
-css: styles.css
+code_folding: hide
 ---
 
 <br/><br/>
 
-Sigue las siguientes instrucciones y podrás realizar un análisis de la situación actual del Covid-19 para la región de tu interés.
 
-Debes entregar un archivo pdf con el resultado del proceso 
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/covid19.png")
+```
+Tomada de : pixabay.com
+
+<br/><br/>
+
+El propósito principal de la actividad es brindar la oportunidad de familiarizarse con el programa estadístico R en la elaboración de informes estadísticos. Siguiendo  los pasos proporcionadas, podrás llevar a cabo un análisis de la población afectada por Covid-19 en la región de tu elección.
+
+<br/>
+
+En este proceso, se espera que apliques las funciones indicadas  para obtención de la data, su limpieza y la generación de indicadores estadístocos y gráficos que permitan 
+analizar datos relacionados con la propagación del Covid-19 en la región que te interese. 
+ 
+<br/>
+
+Una vez completado el análisis, se te solicitará que prepares un informe que resuma tus hallazgos de manera clara y concisa. Para ello, deberás crear un archivo en formato PDF, en la plataforma Brightspace. 
+
 
 <br/><br/>
 

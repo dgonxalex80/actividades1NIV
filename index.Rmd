@@ -319,11 +319,12 @@ knitr::include_graphics("img/Rmd_pdf.png")
 
 **tidyverse** Es un cojunto de paquetes que funcionan de manera armónica, diseñados para ciencia de datos.
 
-  * **dplyr**
-  * **ggplot2**
-  * **readr**
-  * **tidyr**
-  * **purr**
-  * **tibble**
+  * **dplyr**v: manipulación de datos
+  * **ggplot2** : visialización de datos
+  * **readr** : importar datos
+  * **tidyr** : ordenar datos
+  * **purrr** : conjunto de herramientas de programación funcional
+  * **tibble**:  facilita el manejo de datos  
+  * **magrittr** : facilita la escritura de código (uso de  "pipe" %>%)
 
 <br/><br/>

@@ -264,7 +264,7 @@ $(document).ready(function () {
 
 <p><br/><br/></p>
 <p><img src="img/covid19.png" width="100%" style="display: block; margin: auto;" />
-Tomada de : pixabay.com</p>
+<small>Tomada de : pixabay.com</small></p>
 <p><br/><br/></p>
 <p>El propósito principal de la actividad es brindar la oportunidad de
 familiarizarse con el programa estadístico R en la elaboración de
@@ -385,7 +385,7 @@ gráficos</strong></span></h3>
 pie(t1)
 
 t2=table(Colombia$sexo,Colombia$ubicacion)
-barplot(t2, las=1)
+barplot(t2, las=str_to_lower(Colombia$estado)1)
 
 hist(Colombia22_11$edad, las=1, xlab = &quot;edad (años)&quot;, ylab = &quot;frecuencia&quot;, 
 main = &quot;Edad de personas contagiadas Covid19 Colombia- Nov 2022&quot; )
@@ -432,6 +432,195 @@ pdf</strong></li>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lRftK2mL3Sw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 </center>
+</div>
+<p><br/><br/></p>
+<div id="funciones-r-utlizadas" class="section level3">
+<h3><span style="color:#034a94"> <strong>Funciones R
+utlizadas</strong></span></h3>
+<p><br/></p>
+<ul>
+<li><strong>apply</strong> : Devuelve un vector, matriz o lista de
+valores obtenidos aplicando una función a los márgenes de una matriz.
+Ej. <code>x =data.frame(x1= 1:20, x2=21:40)</code> ;
+<code>apply(x,1,mean)</code> ; <code>apply(x,2,mean)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>as.numeric</strong> : Se utiliza para convertir un objeto en
+un tipo de dato numérico. Ej.:
+<code>as.numeric(c("1.2", "2.5", "3.9"))</code>. Tambien puede ser
+utilizada para la construcción de vector de ceros y unos. Coloca uno
+cuando se cumple una condición y ceros cuando no se cumple. Ej.:
+<code>x= 1:20 as.numeric(x &gt; 10)</code>.</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>boxplot</strong> : Se utiliza para crear gráficos de
+diagrama de caja. Ej.: <code>boxplot(x)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>cat</strong>: Se utiliza para imprimir texto en la consola o
+en un archivo de salida. Ej.:
+<code>cat("Media de la edad", mean(x))</code>.</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>density</strong> : Se utiliza para estimar y trazar la
+densidad de probabilidad de un conjunto de datos. La densidad de
+probabilidad es una estimación suave de la distribución de probabilidad
+subyacente de un conjunto de datos, que puede ayudarte a visualizar la
+forma y la tendencia de la distribución. Ej.:
+<code>plot(density(x))</code>.</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>descr</strong> : Función del paquete summarytools en R es
+una herramienta útil para generar descripciones estadísticas resumidas
+de un conjunto de datos. Ej.: <code>summarytools::descr(x)</code>.</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>freq</strong> : se utiliza para generar tablas de frecuencia
+para variables categóricas en un conjunto de datos. Ej.:
+<code>summarytools::freq(x)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>hist</strong> Se utiliza para crear histogramas, que son
+gráficos que representan la distribución de una variable numérica
+segmentada por intervalos. Ej.: <code>hist(x)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>install.packages</strong> : En R se utiliza para instalar
+paquetes o bibliotecas (packages) adicionales en tu entorno de R. Los
+paquetes son conjuntos de funciones, datos y documentación que amplían
+las capacidades de R para realizar diversas tareas y análisis
+específicos. Antes de poder utilizar un paquete, primero debes
+instalarlo en tu sistema. Ej.: <code>instali.packages("ggplot2")</code>
+.</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>install_github</strong> : No es una función nativa de R,
+pero es una función específica del paquete devtools. devtools es un
+paquete ampliamente utilizado para el desarrollo y la gestión de
+paquetes en R, y install_github es una de sus funciones que permite
+instalar paquetes directamente desde GitHub. Esto es especialmente útil
+cuando deseas instalar paquetes que aún no están disponibles en el
+repositorio de CRAN. Ej.:
+<code>devtools::install_github("dgonxalex80/paqueteMETODOS")</code>
+.</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>library</strong> : Se utiliza para cargar un paquete
+específico en tu sesión de R. Ej.: <code>library(tidyverse)</code>
+.</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>max</strong> : Se utiliza para encontrar el valor máximo en
+un conjunto de valores numéricos. Ej.: <code>max(x)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>mean</strong> Se utiliza para encontrar la media o promedio
+de un conjunto de valores numéricos. Ej.: <code>mean(x)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>median</strong> Se utiliza para encontrar la mediana o
+promedio de un conjunto de valores numéricos. Ej.:
+<code>median(x)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>min</strong> Se utiliza para encontrar el valor mínimo en un
+conjunto de valores numéricos. Ej.: <code>min(x)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>pie</strong> Se utiliza para la constricción de gráficos
+circulares o de pastel. Se construye a partir de un vector con las
+frecuencias absolutas o una tabla. Ej.: pie(x)</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>plot</strong> Se emplea para construir gráficos de puntos o
+lineas. Ej.: <code>plot(x,y)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>read.socrata</strong> Funcion que se emplea para descargar
+una base de datos de un repositorio remoto con la autorización de un
+token. Ej.:
+<code>Colombia &lt;- read.socrata("https://www.datos.gov.co/resource/gt2j-8ykr.json", app_token = token)</code>
+.</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>sd</strong> : Se utiliza para encontrar la desviación
+estándar de un conjunto de valores numéricos. Ej.: <code>sd(x)</code>
+.</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>str_to_lower</strong> Esta función toma una variable de tipo
+cadena de texto como argumento y devuelve todas cadenas contenidas en la
+variable como una nueva cadena en la que todas las letras se convierten
+a minúsculas. Ej.: <code>str_to_lower(Colombia$estado)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>subset</strong> Extrae un subconjunto de un conjunto de
+datos, basándose en una condición o criterio específico. Ej.:
+<code>subset(Colombia, ciudad_municipio_nom=="CALI")</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>sum</strong> : Se utiliza para sumar un conjunto de valores.
+Ej.: <code>sum(1:100)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>table</strong> : Se utiliza para construir una tabla de
+freciencias para una variable cualitativa. Ej.; <code>table(x)</code>
+.</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>var</strong>: Se utiliza para encontrar la varianza de un
+conjunto de valores numéricos. Ej.: <code>var(x)</code> .</li>
+</ul>
+<p><br/><br/></p>
+</div>
+<div id="paquetes-utilizados" class="section level3">
+<h3><span style="color:#034a94"> <strong>Paquetes
+utilizados</strong></span></h3>
+<p><br/></p>
+<p><strong>dvtools</strong> : paquete de R utilizado en la creación y
+gestión de paquetes de R (packages)</p>
+<p><br/></p>
+<p><strong>paqueteNIV</strong> : paquete creado para el curso
+Nivelatorio de Estadística de la Maestría en Ciencia de Datos. Contiene
+funciones, datos y tutoriales.</p>
+<p><br/></p>
+<p><strong>RSocrata</strong> : paquete empleado para descargar datos a
+través de una API</p>
+<p><br/></p>
+<p><strong>tidyverse</strong> Es un cojunto de paquetes que funcionan de
+manera armónica, diseñados para ciencia de datos.</p>
+<ul>
+<li><strong>dplyr</strong></li>
+<li><strong>ggplot2</strong></li>
+<li><strong>readr</strong></li>
+<li><strong>tidyr</strong></li>
+<li><strong>purr</strong></li>
+<li><strong>tibble</strong></li>
+</ul>
+<p><br/><br/></p>
 </div>
 </div>
 

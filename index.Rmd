@@ -11,7 +11,7 @@ code_folding: hide
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
 knitr::include_graphics("img/covid19.png")
 ```
-Tomada de : pixabay.com
+<small>Tomada de : pixabay.com</small>
 
 <br/><br/>
 
@@ -136,7 +136,7 @@ t1=table(Colombia$sexo)
 pie(t1)
 
 t2=table(Colombia$sexo,Colombia$ubicacion)
-barplot(t2, las=1)
+barplot(t2, las=str_to_lower(Colombia$estado)1)
 
 hist(Colombia22_11$edad, las=1, xlab = "edad (años)", ylab = "frecuencia", 
 main = "Edad de personas contagiadas Covid19 Colombia- Nov 2022" )
@@ -195,3 +195,135 @@ knitr::include_graphics("img/Rmd_pdf.png")
 
 
 </div>
+
+<br/><br/>
+
+### <span style="color:#034a94"> **Funciones R utlizadas**</span>
+
+<br/>
+
+* **apply** : Devuelve un vector, matriz  o lista de valores obtenidos aplicando una función a los márgenes de una matriz. Ej. `x =data.frame(x1= 1:20, x2=21:40)` ; `apply(x,1,mean)` ; `apply(x,2,mean)` .
+
+<br/>
+
+
+* **as.numeric** : Se utiliza para convertir un objeto en un tipo de dato numérico. Ej.: `as.numeric(c("1.2", "2.5", "3.9"))`. Tambien puede ser utilizada para la construcción de vector de ceros y unos. Coloca uno cuando se cumple una condición y ceros cuando no se cumple. Ej.: `x= 1:20 as.numeric(x > 10)`.
+
+<br/>
+
+* **boxplot** : Se utiliza para crear gráficos de diagrama de caja. Ej.: `boxplot(x)` .
+
+<br/>
+
+* **cat**: Se utiliza para imprimir texto en la consola o en un archivo de salida. Ej.: `cat("Media de la edad", mean(x))`.
+
+<br/>
+
+* **density** : Se utiliza para estimar y trazar la densidad de probabilidad de un conjunto de datos. La densidad de probabilidad es una estimación suave de la distribución de probabilidad subyacente de un conjunto de datos, que puede ayudarte a visualizar la forma y la tendencia de la distribución. Ej.: `plot(density(x))`.
+
+<br/>
+
+* **descr** : Función del paquete summarytools en R es una herramienta útil para generar descripciones estadísticas resumidas de un conjunto de datos. Ej.: `summarytools::descr(x)`.
+
+
+<br/>
+
+* **freq** : se utiliza para generar tablas de frecuencia para variables categóricas en un conjunto de datos. Ej.: `summarytools::freq(x)` .
+
+<br/>
+
+* **hist** Se utiliza para crear histogramas, que son gráficos que representan la distribución de una variable numérica segmentada por intervalos. Ej.: `hist(x)` .
+
+<br/>
+
+* **install.packages** : En R se utiliza para instalar paquetes o bibliotecas (packages) adicionales en tu entorno de R. Los paquetes son conjuntos de funciones, datos y documentación que amplían las capacidades de R para realizar diversas tareas y análisis específicos. Antes de poder utilizar un paquete, primero debes instalarlo en tu sistema. Ej.: `instali.packages("ggplot2")` . 
+
+<br/>
+
+* **install_github** : No es una función nativa de R, pero es una función específica del paquete devtools. devtools es un paquete ampliamente utilizado para el desarrollo y la gestión de paquetes en R, y install_github es una de sus funciones que permite instalar paquetes directamente desde GitHub. Esto es especialmente útil cuando deseas instalar paquetes que aún no están disponibles en el repositorio de CRAN.  Ej.: `devtools::install_github("dgonxalex80/paqueteMETODOS")` . 
+
+<br/>
+
+* **library** : Se utiliza para cargar un paquete específico en tu sesión de R. Ej.: `library(tidyverse)` . 
+
+<br/>
+
+* **max** : Se utiliza para encontrar el valor máximo en un conjunto de valores numéricos. Ej.: `max(x)` .
+
+<br/>
+
+* **mean** Se utiliza para encontrar la media o promedio de un conjunto de valores numéricos. Ej.: `mean(x)` .
+
+<br/>
+
+* **median** Se utiliza para encontrar la mediana o promedio de un conjunto de valores numéricos. Ej.: `median(x)` .
+
+<br/>
+
+* **min** Se utiliza para encontrar el valor mínimo en un conjunto de valores numéricos. Ej.: `min(x)` .
+
+<br/>
+
+* **pie** Se utiliza para la constricción de gráficos circulares o de pastel. Se construye a partir de un vector con las frecuencias absolutas o una tabla. Ej.: pie(x)
+
+<br/>
+
+* **plot** Se emplea para construir gráficos de puntos o lineas. Ej.: `plot(x,y)` .
+
+<br/>
+
+* **read.socrata** Funcion que se emplea para descargar una base de datos de un repositorio remoto con la autorización de un token. Ej.: `Colombia <- read.socrata("https://www.datos.gov.co/resource/gt2j-8ykr.json", app_token = token)` .
+
+
+<br/>
+
+* **sd** : Se utiliza para encontrar la desviación estándar de un conjunto de valores numéricos. Ej.: `sd(x)` . 
+
+<br/>
+
+* **str_to_lower** Esta función toma una variable de tipo cadena de texto como argumento y devuelve todas cadenas contenidas en la variable como una nueva cadena en la que todas las letras se convierten a minúsculas. Ej.: `str_to_lower(Colombia$estado)` .
+
+<br/>
+
+* **subset** Extrae un subconjunto de un conjunto de datos, basándose en una condición o criterio específico. Ej.: `subset(Colombia, ciudad_municipio_nom=="CALI")` .
+
+<br/>
+
+* **sum** : Se utiliza para sumar un conjunto de valores. Ej.: `sum(1:100)` .
+
+<br/>
+
+* **table** : Se utiliza para construir una tabla de freciencias para una variable cualitativa. Ej.; `table(x)` .
+
+<br/>
+
+* **var**: Se utiliza para encontrar la varianza de un conjunto de valores numéricos. Ej.: `var(x)` . 
+
+<br/><br/>
+
+### <span style="color:#034a94"> **Paquetes utilizados**</span>
+
+<br/>
+
+**dvtools** : paquete de R utilizado en la creación y gestión de paquetes de R (packages)
+
+<br/>
+
+**paqueteNIV** : paquete creado para el curso Nivelatorio de Estadística de la Maestría en Ciencia de Datos. Contiene funciones, datos y tutoriales.
+
+<br/>
+
+**RSocrata** : paquete empleado para descargar datos a través de una API 
+
+<br/>
+
+**tidyverse** Es un cojunto de paquetes que funcionan de manera armónica, diseñados para ciencia de datos.
+
+  * **dplyr**
+  * **ggplot2**
+  * **readr**
+  * **tidyr**
+  * **purr**
+  * **tibble**
+
+<br/><br/>

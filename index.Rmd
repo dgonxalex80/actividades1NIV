@@ -202,14 +202,6 @@ knitr::include_graphics("img/Rmd_pdf.png")
 
 <br/>
 
-* **apply** : Devuelve un vector, matriz  o lista de valores obtenidos aplicando una función a los márgenes de una matriz. Ej. `x =data.frame(x1= 1:20, x2=21:40)` ; `apply(x,1,mean)` ; `apply(x,2,mean)` .
-
-<br/>
-
-
-* **as.numeric** : Se utiliza para convertir un objeto en un tipo de dato numérico. Ej.: `as.numeric(c("1.2", "2.5", "3.9"))`. Tambien puede ser utilizada para la construcción de vector de ceros y unos. Coloca uno cuando se cumple una condición y ceros cuando no se cumple. Ej.: `x= 1:20 as.numeric(x > 10)`.
-
-<br/>
 
 * **boxplot** : Se utiliza para crear gráficos de diagrama de caja. Ej.: `boxplot(x)` .
 
